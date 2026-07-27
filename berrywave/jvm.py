@@ -1,13 +1,15 @@
 import jpype
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).parent.parent
-LIB_DIRECTORY = PROJECT_ROOT / "lib"
+JAVA_DIRECTORY = Path(__file__).parent / "java"
 
 def start_jvm():
     if jpype.isJVMStarted():
         return
 
-    jars = [str(jar) for jar in LIB_DIRECTORY.glob("*.jar")]
+    jars = [str(jar) for jar in JAVA_DIRECTORY.glob("*.jar")]
+
+    if not jars:
+        raise RuntimeError(f"No Java libraries found in {JAVA_DIRECTORY}")
 
     jpype.startJVM(classpath=jars)
