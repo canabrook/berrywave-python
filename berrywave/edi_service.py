@@ -7,21 +7,17 @@ class EdiService:
     def __init__(self):
         start_jvm()
 
-        java_class = jpype.JClass(
+        EdiServiceJava = jpype.JClass(
             "berrywave.core.edi.EdiService"
         )
 
-        self._service = java_class.getInstance()
+        self._service = EdiServiceJava.getInstance()
 
         Config = jpype.JClass("berrywave.config.Config")
         config = Config.getInstance()
-        # print(config)
 
         properties = config.getBerryWaveProperties()
-        # print(properties)
-
         license = properties.getLicense()
-        # print(license)
         license.setCompany("BerryWave Developer")
 
         print(self._service.getLicenseInfo())
