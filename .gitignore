@@ -1,0 +1,16 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# PyCharm
+.idea/
+*.iml
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Local Java libraries
+lib/*.jar
