@@ -4,7 +4,7 @@ import jpype
 
 class EdiService:
 
-    def __init__(self):
+    def __init__(self) -> None:
         start_jvm()
 
         EdiServiceJava = jpype.JClass(
