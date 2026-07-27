@@ -15,7 +15,7 @@ build-backend = "setuptools.build_meta"
 packages = ["berrywave"]
 
 [tool.setuptools.package-data]
-berrywave = ["java/*.jar"]
+berrywave = ["runtime/java/*.jar"]
 
 [project.optional-dependencies]
 dev = [
