@@ -1,0 +1,40 @@
+"""
+Convert an EDIFACT ORDERS message to JSON.
+
+This example demonstrates converting an EDIFACT purchase order
+using the BerryWave Python SDK.
+"""
+from berrywave import EdiService
+
+
+def main():
+    service = EdiService()
+
+    edi_document = """UNA:+.? '
+UNB+UNOA:3+8712345003008:14+8712345900007:14+960629:0921+00163++++++1'
+UNH+METRO00001+ORDERS:D:96A:UN:EAN008'
+BGM+220::9+100001+9+NA'
+DTM+137:200308301200:203'
+DTM+2:200302281500:203'
+RFF+PD:2003134'
+NAD+BY+8711576000012::9'
+NAD+SU+4012345500004::9'
+NAD+DP+8711576100019::9'
+TAX+7+ACT++++E'
+LIN+1++8712345003005:EN'
+QTY+21:48'
+RFF+PD:99'
+LIN+2++8712345004002:EN'
+QTY+21:50'
+RFF+PD:99'
+UNS+S'
+UNT+17+METRO00001'
+UNZ+1+00163'
+"""
+
+    json_document = service.edi_to_json(edi_document)
+    print(json_document)
+
+
+if __name__ == "__main__":
+    main()
