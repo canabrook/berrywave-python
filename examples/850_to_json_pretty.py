@@ -1,10 +1,15 @@
+"""
+Convert an X12 850 Purchase Order to JSON.
+
+This example returns pretty-printed JSON for improved human readability.
+"""
 from berrywave import EdiService
 
 
 def main():
     service = EdiService()
 
-    edi = """
+    edi_document = """
 ISA^00^          ^00^          ^ZZ^1556150        ^12^5088942073     ^100903^0143^U^00401^500009740^0^P^|~
 GS^PO^007941230^8145^20100903^0143^653^X^004010~
 ST^850^8620~
@@ -18,8 +23,11 @@ GE^1^653~
 IEA^1^500009740~
 """
 
-    json_text = service.edi_to_json(edi, True)
-    print(json_text)
+    json_document = service.edi_to_json(
+        edi_document,
+        pretty=True,
+    )
+    print(json_document)
 
 
 if __name__ == "__main__":

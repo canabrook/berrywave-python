@@ -22,11 +22,11 @@ class EdiService:
 
         print(self._service.getLicenseInfo())
 
-    def edi_to_json(self, edi: str, formatted: bool = True) -> str:
+    def edi_to_json(self, edi: str, pretty: bool = False) -> str:
         return self._service.ediToJson(
             edi,
             None,
-            formatted
+            pretty
         )
 
     def license_info(self) -> str:
