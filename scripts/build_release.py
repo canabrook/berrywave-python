@@ -1,19 +1,22 @@
 #!/usr/bin/env python3
 """
-Build a BerryWave Python SDK release.
+Build a BerryWave EDI Python SDK release.
 
-Produces:
+Produces release artifacts in the dist/ directory.
 
-    dist/
-        berrywave_edi-<version>-py3-none-any.whl
-        berrywave_edi_examples-<version>.zip
+Current artifacts:
+
+    berrywave_edi-<version>-py3-none-any.whl
+
+Future artifacts:
+
+    berrywave_edi_examples-<version>.zip
 """
 
 from pathlib import Path
 import shutil
 import subprocess
 import tomllib
-import zipfile
 
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
@@ -30,7 +33,9 @@ def read_version() -> str:
 
 
 def clean_dist():
-    """Remove any previous release artifacts."""
+    """Remove previous release artifacts."""
+
+    print("Cleaning dist/ ...")
 
     if DIST.exists():
         shutil.rmtree(DIST)
@@ -39,7 +44,9 @@ def clean_dist():
 
 
 def build_wheel():
-    """Build the wheel."""
+    """Build the Python wheel."""
+
+    print("Building wheel ...")
 
     subprocess.run(
         ["python", "-m", "build", "--wheel"],
@@ -48,23 +55,42 @@ def build_wheel():
     )
 
 
-def wheel_file() -> Path:
-    wheels = list(DIST.glob("*.whl"))
-
-    if len(wheels) != 1:
-        raise RuntimeError("Expected exactly one wheel.")
-
-    return wheels[0]
-
 def build_examples(version: str):
-    print(f"Building examples archive {version}...")
+    """Create the examples archive."""
+
+    print(f"Building examples archive ({version}) ...")
+
+    # TODO
+    # berrywave_edi_examples-<version>.zip
+
+
+def list_artifacts():
+    """Display generated release artifacts."""
+
+    print()
+    print("Release artifacts")
+    print("-----------------")
+
+    for artifact in sorted(DIST.iterdir()):
+        size = artifact.stat().st_size
+        print(f"{artifact.name:<55} {size:>8,d} bytes")
+
+    print()
+
+
+def banner(version: str):
+    print()
+    print("BerryWave Python SDK Release Builder")
+    print("====================================")
+    print(f"Version : {version}")
+    print()
 
 
 def main():
 
     version = read_version()
 
-    print(f"BerryWave SDK {version}")
+    banner(version)
 
     clean_dist()
 
@@ -72,7 +98,9 @@ def main():
 
     build_examples(version)
 
-    print("Done.")
+    list_artifacts()
+
+    print("Release build completed successfully.")
 
 
 if __name__ == "__main__":
