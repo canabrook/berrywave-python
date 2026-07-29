@@ -1,13 +1,13 @@
-<div align="center">
-  <img src="docs/images/berrywave-logo.png" alt="BerryWave Logo" width="100" />
-  <h1>BerryWave EDI Python SDK</h1>
-  
-  <p><i>Convert X12 and EDIFACT EDI documents to JSON using a simple, Python-native API.</i></p>
-</div>
+<h1>
+  <img src="docs/images/berrywave-logo.png" alt="BerryWave Logo" width="36" height="36" valign="middle">
+  BerryWave EDI Python SDK
+</h1>
 
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
 ![License](https://img.shields.io/badge/License-Apache%202.0-green)
 ![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)
+
+> **Convert X12 and EDIFACT EDI documents to JSON using a simple, Python-native API.**
 
 The BerryWave EDI Python SDK provides a simple, Python-native interface for working with EDI documents while leveraging the proven BerryWave Software EDI processing engine.
 
