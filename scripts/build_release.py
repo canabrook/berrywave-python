@@ -18,6 +18,7 @@ import shutil
 import subprocess
 import tomllib
 import zipfile
+import tempfile
 
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
@@ -58,6 +59,19 @@ def build_wheel():
         cwd=ROOT,
         check=True,
     )
+
+
+def find_wheel() -> Path:
+    """Find the generated wheel."""
+
+    wheels = list(DIST.glob("*.whl"))
+
+    if len(wheels) != 1:
+        raise RuntimeError(
+            f"Expected one wheel, found {len(wheels)}"
+        )
+
+    return wheels[0]
 
 
 def add_directory_to_zip(archive, directory, version):
@@ -137,6 +151,55 @@ def banner(version: str):
     print()
 
 
+def verify_release():
+    """Install the wheel in a clean virtual environment and test import."""
+
+    print("Verifying wheel installation ...")
+
+    wheel = find_wheel()
+
+    with tempfile.TemporaryDirectory() as temp_dir:
+
+        venv = Path(temp_dir) / ".venv"
+
+        subprocess.run(
+            [
+                "python",
+                "-m",
+                "venv",
+                str(venv),
+            ],
+            check=True,
+        )
+
+        if Path("/usr/bin/python3").exists():
+            python = venv / "bin" / "python"
+        else:
+            python = venv / "bin" / "python"
+
+        subprocess.run(
+            [
+                str(python),
+                "-m",
+                "pip",
+                "install",
+                str(wheel),
+            ],
+            check=True,
+        )
+
+        subprocess.run(
+            [
+                str(python),
+                "-c",
+                "import berrywave; print('Import successful')",
+            ],
+            check=True,
+        )
+
+    print("Wheel verification successful.")
+
+
 def main():
     version = read_version()
 
@@ -147,6 +210,8 @@ def main():
     build_wheel()
 
     build_examples(version)
+
+    verify_release()
 
     list_artifacts()
 
