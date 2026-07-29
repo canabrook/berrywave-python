@@ -25,5 +25,5 @@ def verify_java_available():
     except Exception as e:
         raise BerryWaveError(
             "Java runtime not found. "
-            "BerryWave EDI requires Java 17 or later."
+            "BerryWave EDI requires Java 21 or later."
         ) from e
