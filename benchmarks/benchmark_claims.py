@@ -30,7 +30,7 @@ def format_bytes(value: int) -> str:
 def main():
     input_file = (
         PROJECT_ROOT
-        / "sample_data"
+        / "benchmark_data"
         / "837s-100x100.edi"
     )
 
