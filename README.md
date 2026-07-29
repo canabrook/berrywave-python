@@ -141,7 +141,7 @@ Run an example:
 python -m examples.850_to_json
 ```
 
-The examples demonstrate the SDK using real EDI documents and require only the installed BerryWave EDI Python SDK.
+The examples demonstrate the SDK using representative EDI documents and require only the installed BerryWave EDI Python SDK.
 
 ---
 

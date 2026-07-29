@@ -25,6 +25,7 @@ PYPROJECT = ROOT / "pyproject.toml"
 
 EXAMPLES_DIR = ROOT / "examples"
 EXAMPLES_OUTPUT = "berrywave_edi_examples"
+SAMPLE_DATA_DIR = ROOT / "sample_data"
 
 
 def read_version() -> str:
@@ -59,6 +60,33 @@ def build_wheel():
     )
 
 
+def add_directory_to_zip(archive, directory, version):
+    """Add a directory tree to the examples archive."""
+
+    if not directory.exists():
+        return
+
+    for file in directory.rglob("*"):
+
+        if not file.is_file():
+            continue
+
+        if "__pycache__" in file.parts:
+            continue
+
+        if file.suffix == ".pyc":
+            continue
+
+        relative_path = file.relative_to(ROOT)
+
+        archive.write(
+            file,
+            arcname=Path(
+                f"{EXAMPLES_OUTPUT}-{version}"
+            ) / relative_path,
+        )
+
+
 def build_examples(version: str):
     """Create the examples archive."""
 
@@ -67,28 +95,22 @@ def build_examples(version: str):
 
     print(f"Building examples archive ({archive_name}) ...")
 
-    if not EXAMPLES_DIR.exists():
-        raise RuntimeError(
-            f"Examples directory not found: {EXAMPLES_DIR}"
-        )
-
     with zipfile.ZipFile(
             archive_path,
             "w",
             compression=zipfile.ZIP_DEFLATED,
     ) as archive:
+        add_directory_to_zip(
+            archive,
+            EXAMPLES_DIR,
+            version,
+        )
 
-        for file in EXAMPLES_DIR.rglob("*"):
-
-            if file.is_file():
-                relative_path = file.relative_to(ROOT)
-
-                archive.write(
-                    file,
-                    arcname=Path(
-                        f"{EXAMPLES_OUTPUT}-{version}"
-                    ) / relative_path
-                )
+        add_directory_to_zip(
+            archive,
+            SAMPLE_DATA_DIR,
+            version,
+        )
 
     print(f"Created {archive_path}")
 
