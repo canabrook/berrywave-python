@@ -1,6 +1,6 @@
 # BerryWave EDI Python SDK
 
-A Python SDK for converting EDI documents into structured JSON.
+**Convert X12 and EDIFACT EDI documents to JSON using a simple, Python-native API.**
 
 The BerryWave EDI Python SDK provides a simple, Python-native interface for working with EDI documents while leveraging the proven BerryWave EDI processing engine. It is designed for Python applications, automation workflows, data pipelines, and AI-enabled applications that need reliable EDI processing without requiring a REST API.
 
@@ -18,7 +18,7 @@ The initial public release focuses on one thing:
 - Convert EDIFACT to JSON
 - Optional pretty-printed JSON output
 - No license required
-- Local execution with no network connectivity
+- No network connectivity required
 
 Additional EDI services will be added in future releases.
 
@@ -40,7 +40,7 @@ print(json_document)
 
 ## Example Programs
 
-The SDK includes working examples demonstrating common use cases:
+The SDK includes working examples demonstrating common use cases.
 
 | Example | Description |
 |----------|-------------|
@@ -49,6 +49,12 @@ The SDK includes working examples demonstrating common use cases:
 | `837_to_json.py` | Convert an X12 837 Healthcare Claim to JSON |
 | `edifact_orders_to_json.py` | Convert an EDIFACT ORDERS message to JSON |
 | `edi_parse_error.py` | Demonstrate handling EDI parsing exceptions |
+
+To run an example:
+
+```bash
+python -m examples.850_to_json
+```
 
 Additional examples will be added as the SDK evolves.
 
@@ -89,7 +95,7 @@ BerryWave EDI Engine
 X12 / EDIFACT Processing
 ```
 
-The Python layer presents a clean, Pythonic interface while the underlying EDI processing remains implemented in the BerryWave engine.
+The Python layer presents a clean, Pythonic interface while the underlying EDI processing remains implemented in the BerryWave EDI engine.
 
 Most applications never need to know that the implementation is written in Java.
 
@@ -101,13 +107,13 @@ The BerryWave EDI engine is designed for environments where EDI data must remain
 
 Features include:
 
-- Local execution
-- No outbound network connections
+- No network connectivity required
+- No inbound or outbound network connections
 - Suitable for on-premise deployment
 - Suitable for air-gapped environments
 - Customer-controlled processing of sensitive EDI documents
 
-All EDI processing occurs locally.
+All EDI processing occurs entirely on the local machine.
 
 ---
 
@@ -140,22 +146,6 @@ Python-EDI/
 
 ---
 
-## Development
-
-Run the test suite:
-
-```bash
-pytest
-```
-
-Run an example:
-
-```bash
-python -m examples.850_to_json
-```
-
----
-
 ## Roadmap
 
 Planned enhancements include:
@@ -170,7 +160,7 @@ Planned enhancements include:
 
 ---
 
-## Relationship to BerryWave
+## About BerryWave
 
 This repository contains the complete Python SDK source code.
 
