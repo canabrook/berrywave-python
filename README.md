@@ -21,7 +21,7 @@ The underlying BerryWave EDI processing engine is developed and maintained by Be
 
 ## Current Release
 
-The initial public release focuses on one thing:
+The initial public release focuses on **core EDI-to-JSON conversion**:
 
 - Convert X12 EDI to JSON
 - Convert EDIFACT to JSON
