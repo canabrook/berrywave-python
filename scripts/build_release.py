@@ -17,10 +17,14 @@ from pathlib import Path
 import shutil
 import subprocess
 import tomllib
+import zipfile
 
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 PYPROJECT = ROOT / "pyproject.toml"
+
+EXAMPLES_DIR = ROOT / "examples"
+EXAMPLES_OUTPUT = "berrywave_edi_examples"
 
 
 def read_version() -> str:
@@ -58,10 +62,35 @@ def build_wheel():
 def build_examples(version: str):
     """Create the examples archive."""
 
-    print(f"Building examples archive ({version}) ...")
+    archive_name = f"{EXAMPLES_OUTPUT}-{version}.zip"
+    archive_path = DIST / archive_name
 
-    # TODO
-    # berrywave_edi_examples-<version>.zip
+    print(f"Building examples archive ({archive_name}) ...")
+
+    if not EXAMPLES_DIR.exists():
+        raise RuntimeError(
+            f"Examples directory not found: {EXAMPLES_DIR}"
+        )
+
+    with zipfile.ZipFile(
+            archive_path,
+            "w",
+            compression=zipfile.ZIP_DEFLATED,
+    ) as archive:
+
+        for file in EXAMPLES_DIR.rglob("*"):
+
+            if file.is_file():
+                relative_path = file.relative_to(ROOT)
+
+                archive.write(
+                    file,
+                    arcname=Path(
+                        f"{EXAMPLES_OUTPUT}-{version}"
+                    ) / relative_path
+                )
+
+    print(f"Created {archive_path}")
 
 
 def list_artifacts():
@@ -87,7 +116,6 @@ def banner(version: str):
 
 
 def main():
-
     version = read_version()
 
     banner(version)
