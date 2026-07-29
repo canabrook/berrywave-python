@@ -2,11 +2,14 @@
 
 **Convert X12 and EDIFACT EDI documents to JSON using a simple, Python-native API.**
 
-The BerryWave EDI Python SDK provides a simple, Python-native interface for working with EDI documents while leveraging the proven BerryWave EDI processing engine. It is designed for Python applications, automation workflows, data pipelines, and AI-enabled applications that need reliable EDI processing without requiring a REST API.
+The BerryWave EDI Python SDK provides a simple, Python-native interface for working with EDI documents while leveraging
+the proven BerryWave EDI processing engine. It is designed for Python applications, automation workflows, data
+pipelines, and AI-enabled applications that need reliable EDI processing without requiring a REST API.
 
 The Python SDK source code is fully available in this repository.
 
-The underlying BerryWave EDI processing engine is developed and maintained by BerryWave and is distributed as prebuilt runtime libraries.
+The underlying BerryWave EDI processing engine is developed and maintained by BerryWave and is distributed as prebuilt
+runtime libraries.
 
 ---
 
@@ -42,13 +45,13 @@ print(json_document)
 
 The SDK includes working examples demonstrating common use cases.
 
-| Example | Description |
-|----------|-------------|
-| `850_to_json.py` | Convert an X12 850 Purchase Order to JSON |
-| `850_to_json_pretty.py` | Produce indented, human-readable JSON |
-| `837_to_json.py` | Convert an X12 837 Healthcare Claim to JSON |
-| `edifact_orders_to_json.py` | Convert an EDIFACT ORDERS message to JSON |
-| `edi_parse_error.py` | Demonstrate handling EDI parsing exceptions |
+| Example                     | Description                                 |
+|-----------------------------|---------------------------------------------|
+| `850_to_json.py`            | Convert an X12 850 Purchase Order to JSON   |
+| `850_to_json_pretty.py`     | Produce indented, human-readable JSON       |
+| `837_to_json.py`            | Convert an X12 837 Healthcare Claim to JSON |
+| `edifact_orders_to_json.py` | Convert an EDIFACT ORDERS message to JSON   |
+| `edi_parse_error.py`        | Demonstrate handling EDI parsing exceptions |
 
 To run an example:
 
@@ -62,19 +65,77 @@ Additional examples will be added as the SDK evolves.
 
 ## Installation
 
-Clone the repository and create a virtual environment.
+The recommended way to install the BerryWave EDI Python SDK is from the release assets available on the project's GitHub
+Releases page.
+
+Each release includes:
+
+- `berrywave_edi-*.whl` — the Python SDK package
+- `berrywave_edi_examples-*.zip` — example programs and sample EDI documents
+
+---
+
+### Install the SDK
+
+Download the latest wheel file:
+
+```text
+berrywave_edi-0.1.0-py3-none-any.whl
+```
+
+Create and activate a Python virtual environment:
 
 ```bash
-git clone https://github.com/BerryWave/Python-EDI.git
-
-cd Python-EDI
-
 python -m venv .venv
 
 source .venv/bin/activate
-
-pip install -e .
 ```
+
+Install the SDK:
+
+```bash
+pip install berrywave_edi-0.1.0-py3-none-any.whl
+```
+
+Verify the installation:
+
+```bash
+python -c "import berrywave; print(berrywave)"
+```
+
+The SDK is now ready to use.
+
+---
+
+### Run the Examples
+
+Download and extract the examples archive:
+
+```text
+berrywave_edi_examples-0.1.0.zip
+```
+
+The examples include:
+
+- X12 850 Purchase Order conversion
+- X12 837 Healthcare Claim conversion
+- EDIFACT ORDERS conversion
+- Pretty-printed JSON output
+- EDI parsing error handling
+
+After extracting the examples:
+
+```bash
+cd berrywave_edi_examples
+```
+
+Run an example:
+
+```bash
+python -m examples.850_to_json
+```
+
+The examples demonstrate the SDK using real EDI documents and require only the installed BerryWave EDI Python SDK.
 
 ---
 
@@ -95,7 +156,8 @@ BerryWave EDI Engine
 X12 / EDIFACT Processing
 ```
 
-The Python layer presents a clean, Pythonic interface while the underlying EDI processing remains implemented in the BerryWave EDI engine.
+The Python layer presents a clean, Pythonic interface while the underlying EDI processing remains implemented in the
+BerryWave EDI engine.
 
 Most applications never need to know that the implementation is written in Java.
 
@@ -164,9 +226,11 @@ Planned enhancements include:
 
 This repository contains the complete Python SDK source code.
 
-The BerryWave EDI processing engine is developed and maintained by BerryWave and is distributed as prebuilt runtime libraries included with the SDK.
+The BerryWave EDI processing engine is developed and maintained by BerryWave and is distributed as prebuilt runtime
+libraries included with the SDK.
 
-The goal of this project is to provide a natural, Python-first interface to the BerryWave EDI engine while keeping installation and use as simple as possible.
+The goal of this project is to provide a natural, Python-first interface to the BerryWave EDI engine while keeping
+installation and use as simple as possible.
 
 ---
 
