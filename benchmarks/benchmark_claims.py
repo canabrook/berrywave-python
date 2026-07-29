@@ -10,9 +10,11 @@ Measures:
 
 from pathlib import Path
 from time import perf_counter
+import platform
+import importlib.metadata
 
+import jpype
 from berrywave import EdiService
-
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
@@ -27,17 +29,37 @@ def format_bytes(value: int) -> str:
     return f"{value / (1024 * 1024):.1f} MB"
 
 
+def print_environment():
+    print()
+    print("Environment")
+    print("-----------")
+    print(f"Python          : {platform.python_version()}")
+
+    if jpype.isJVMStarted():
+        java_version = jpype.java.lang.System.getProperty(
+            "java.version"
+        )
+        print(f"Java            : {java_version}")
+    else:
+        print("Java            : JVM not started")
+
+    sdk_version = importlib.metadata.version(
+        "berrywave-edi"
+    )
+    print(f"BerryWave SDK   : {sdk_version}")
+
+
 def main():
     input_file = (
-        PROJECT_ROOT
-        / "benchmark_data"
-        / "837s-100x100.edi"
+            PROJECT_ROOT
+            / "benchmark_data"
+            / "837s-100x100.edi"
     )
 
     output_file = (
-        PROJECT_ROOT
-        / "output"
-        / "837s-100x100.json"
+            PROJECT_ROOT
+            / "output"
+            / "837s-100x100.json"
     )
 
     if not input_file.exists():
@@ -49,10 +71,10 @@ def main():
     # Measure JVM startup and SDK initialization
     #
     start = perf_counter()
-
     service = EdiService()
-
     jvm_elapsed = perf_counter() - start
+
+    print_environment()
 
     #
     # Measure EDI conversion
