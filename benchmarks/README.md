@@ -1,0 +1,1 @@
+Large benchmark files are provided separately because they are intended for performance testing rather than normal SDK usage.

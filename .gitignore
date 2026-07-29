@@ -13,4 +13,4 @@ build/
 *.egg-info/
 
 # Local Java libraries
-lib/*.jar
+lib/*.jarsample_data/837s-100x100.edi
