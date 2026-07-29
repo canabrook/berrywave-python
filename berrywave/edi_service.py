@@ -27,10 +27,10 @@ class EdiService:
         print(self._service.getLicenseInfo())
 
     def edi_to_json(
-        self,
-        edi: str,
-        *,
-        pretty: bool = False,
+            self,
+            edi: str,
+            *,
+            pretty: bool = False,
     ) -> str:
         """
         Convert an EDI document provided as a string to JSON.
@@ -46,20 +46,20 @@ class EdiService:
             EdiParseError: If the EDI document cannot be converted.
         """
         try:
-            return self._service.ediToJson(
+            return str(self._service.ediToJson(
                 edi,
                 None,
                 pretty,
-            )
+            ))
         except Exception as exc:
             raise EdiParseError(str(exc)) from exc
 
     def edi_file_to_json(
-        self,
-        input_file: str | Path,
-        output_file: str | Path,
-        *,
-        pretty: bool = False,
+            self,
+            input_file: str | Path,
+            output_file: str | Path,
+            *,
+            pretty: bool = False,
     ) -> None:
         """
         Convert an EDI file to a JSON file.
@@ -86,6 +86,8 @@ class EdiService:
                 edi,
                 pretty=pretty,
             )
+
+            output_path.parent.mkdir(parents=True, exist_ok=True)
 
             output_path.write_text(
                 json_document,
