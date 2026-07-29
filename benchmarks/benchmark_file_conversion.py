@@ -13,6 +13,8 @@ from time import perf_counter
 
 from berrywave import EdiService
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
 
 def format_bytes(value: int) -> str:
     if value < 1024:
@@ -25,13 +27,9 @@ def format_bytes(value: int) -> str:
 
 
 def main():
-    input_file = Path(
-        "sample_data/837s-100x100.edi"
-    )
+    input_file = PROJECT_ROOT / "sample_data" / "837s-100x100.edi"
 
-    output_file = Path(
-        "output/large_837.json"
-    )
+    output_file = PROJECT_ROOT / "output" / "837s-100x100.json"
 
     service = EdiService()
 
