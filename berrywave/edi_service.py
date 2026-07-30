@@ -62,13 +62,9 @@ class EdiService:
         """
         Convert an EDI file to a JSON file.
 
-        This initial implementation reads the file into memory and uses
-        edi_to_json(). The public API is designed to allow future versions
-        to use the BerryWave streaming engine directly.
-
         Args:
             input_file: Path to the input EDI file.
-            output_file: Path where JSON output will be written.
+            output_file: Path where the JSON output will be written.
             pretty: Format JSON output for readability.
 
         Raises:
@@ -78,11 +74,12 @@ class EdiService:
         output_path = Path(output_file)
 
         try:
-            edi = input_path.read_text(encoding="utf-8")
-
-            json_document = self.edi_to_json(
-                edi,
-                pretty=pretty,
+            json_document = str(
+                self._service.ediToJson(
+                    "",
+                    str(input_path),
+                    pretty,
+                )
             )
 
             output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -91,9 +88,6 @@ class EdiService:
                 json_document,
                 encoding="utf-8",
             )
-
-        except EdiParseError:
-            raise
 
         except Exception as exc:
             raise EdiParseError(
