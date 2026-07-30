@@ -186,17 +186,19 @@ The BerryWave EDI Python SDK uses a local Java runtime to execute the BerryWave 
 
 ## Roadmap
 
-Planned enhancements include:
+The underlying BerryWave EDI engine natively supports additional capabilities that will be exposed in future Python SDK releases:
 
-- Additional EDI services
-  - JSON to EDI
-  - Compliance checking using EDI models
-  - Functional acknowledgments
-  - Business acknowledgments. For example,  850 → 855 and 837 → 277.
-  - JSONata transformation of JSON output
-- More ready-to-run benchmarks
-- Rich Python exception hierarchy
-- Distribution through PyPI
+* **Engine Capabilities (Coming to Python SDK):**
+  * JSON to EDI conversion
+  * Compliance checking using EDI models
+  * Functional acknowledgments (e.g., 997, 999, CONTRL)
+  * Business acknowledgments (e.g., 850 → 855, 837 → 277)
+  * JSONata transformation of JSON output
+  * Additional EDI standards (e.g., HL7, TRADACOMS)
+
+* **SDK & Packaging Improvements:**
+  * Distribution through PyPI
+  * Additional ready-to-run benchmarks
 
 ---
 
