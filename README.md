@@ -3,7 +3,7 @@
   BerryWave EDI Python SDK
 </h1>
 
-![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
+![Python](https://img.shields.io/badge/Python-3.14%2B-blue)
 ![Java](https://img.shields.io/badge/Java-21%2B-orange)
 ![License](https://img.shields.io/badge/License-Apache%202.0-green)
 ![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)
@@ -113,13 +113,8 @@ Download and extract the examples archive:
 berrywave_edi_examples-0.1.0.zip
 ```
 
-The examples include:
-
-- X12 850 Purchase Order conversion
-- X12 837 Healthcare Claim conversion
-- EDIFACT ORDERS conversion
-- Pretty-printed JSON output
-- EDI parsing error handling
+The examples archive contains working examples
+and representative EDI documents covering the capabilities described above.
 
 After extracting the examples:
 
@@ -177,7 +172,7 @@ All EDI processing occurs entirely on the local machine.
 
 ## Requirements
 
-- Python 3.11 or later
+- Python 3.14 or later
 - Java 21 or later
 
 The BerryWave EDI Python SDK uses a local Java runtime to execute the BerryWave EDI processing engine.
