@@ -94,7 +94,7 @@ Download and extract the examples and benchmarks archives:
 
 The examples archive contains working examples and representative EDI documents covering the capabilities described above.
 
-After extracting the examples:
+After extracting:
 
     cd berrywave_edi_examples-0.1.0
 
