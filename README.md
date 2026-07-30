@@ -180,35 +180,6 @@ All EDI processing occurs entirely on the local machine.
 
 ---
 
-## Project Structure
-
-```
-Python-EDI/
-
-├── berrywave/
-│   ├── __init__.py
-│   ├── edi_service.py
-│   ├── exceptions.py
-│   ├── jvm.py
-│   └── runtime/
-│       └── java/
-│
-├── examples/
-│   ├── 850_to_json.py
-│   ├── 850_to_json_pretty.py
-│   ├── 837_to_json.py
-│   ├── edifact_orders_to_json.py
-│   └── edi_parse_error.py
-│
-├── tests/
-│
-├── pyproject.toml
-│
-└── README.md
-```
-
----
-
 ## Roadmap
 
 Planned enhancements include:
@@ -228,7 +199,8 @@ Planned enhancements include:
 - Python 3.11 or later
 - Java 21 or later
 
-The BerryWave EDI Python SDK uses a local Java runtime to execute the BerryWave EDI processing engine. No network connection or external service is required.
+The BerryWave EDI Python SDK uses a local Java runtime to execute the BerryWave EDI processing engine.
+
 
 ---
 
