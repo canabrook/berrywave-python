@@ -108,13 +108,13 @@ and representative EDI documents covering the capabilities described above.
 After extracting the examples:
 
 ```bash
-cd berrywave_edi_examples
+cd berrywave_edi_examples-0.1.0
 ```
 
 Run an example:
 
 ```bash
-python -m examples.850_to_json
+python -m examples.850_to_json_pretty
 ```
 
 The examples demonstrate the SDK using representative EDI documents and require only the installed BerryWave EDI Python SDK.
