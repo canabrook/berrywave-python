@@ -24,8 +24,6 @@ class EdiService:
         license = properties.getLicense()
         license.setCompany("BerryWave Developer")
 
-        print(self._service.getLicenseInfo())
-
     def edi_to_json(
             self,
             edi: str,
