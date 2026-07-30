@@ -74,25 +74,15 @@ class EdiService:
         output_path = Path(output_file)
 
         try:
-            json_document = str(
-                self._service.ediToJson(
-                    "",
-                    str(input_path),
-                    pretty,
-                )
-            )
-
-            output_path.parent.mkdir(parents=True, exist_ok=True)
-
-            output_path.write_text(
-                json_document,
-                encoding="utf-8",
+            self._service.ediToJsonFiles(
+                str(input_path),
+                str(output_path),
+                pretty,
             )
 
         except Exception as exc:
-            raise EdiParseError(
-                f"Unable to convert EDI file '{input_path}': {exc}"
-            ) from exc
+            raise EdiParseError(f"Unable to convert EDI file '{input_path}': {exc}") from exc
 
-    def license_info(self) -> str:
-        return self._service.getLicenseInfo()
+
+def license_info(self) -> str:
+    return self._service.getLicenseInfo()
