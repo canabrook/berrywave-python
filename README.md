@@ -158,9 +158,7 @@ X12 / EDIFACT Processing
 ```
 
 The Python layer presents a clean, Pythonic interface while the underlying EDI processing remains implemented in the
-BerryWave EDI engine.
-
-Most applications never need to know that the implementation is written in Java.
+BerryWave EDI engine. Most applications never need to know that the implementation is written in Java.
 
 ---
 
@@ -184,13 +182,16 @@ All EDI processing occurs entirely on the local machine.
 
 Planned enhancements include:
 
-- Additional EDI-to-JSON examples
-- File-based input and output
 - Additional EDI services
+  - JSON to EDI
+  - Compliance checking using EDI models
+  - Functional acknowledgments
+  - Business acknowledgments. For example,  850 → 855 and 837 → 277.
+  - JSONata transformation of JSON output
+- More ready-to-run benchmarks
 - Rich Python exception hierarchy
-- Improved documentation
 - Distribution through PyPI
-- Additional AI integration examples
+
 
 ---
 
@@ -218,7 +219,6 @@ This repository contains the complete BerryWave EDI Python SDK source code.
 
 The BerryWave EDI processing engine is developed and maintained by BerryWave Software and is distributed as prebuilt runtime libraries included with the SDK.
 
-The goal of this project is to provide a natural, Python-first interface to the BerryWave EDI engine while keeping installation and use as simple as possible.
 
 ---
 
