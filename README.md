@@ -40,9 +40,7 @@ Additional EDI services will be added in future releases.
 from berrywave import EdiService
 
 service = EdiService()
-
 json_document = service.edi_to_json(edi_document)
-
 print(json_document)
 ```
 
@@ -74,7 +72,7 @@ Each release includes:
 - `berrywave_edi-*.whl` — the Python SDK package
 - `berrywave_edi_examples-*.zip` — example programs and sample EDI documents
 
----
+
 
 ### Install the SDK
 
@@ -106,7 +104,6 @@ python -c "import berrywave; print(berrywave)"
 
 The SDK is now ready to use.
 
----
 
 ### Run the Examples
 
@@ -178,6 +175,15 @@ All EDI processing occurs entirely on the local machine.
 
 ---
 
+## Requirements
+
+- Python 3.11 or later
+- Java 21 or later
+
+The BerryWave EDI Python SDK uses a local Java runtime to execute the BerryWave EDI processing engine.
+
+---
+
 ## Roadmap
 
 Planned enhancements include:
@@ -191,17 +197,6 @@ Planned enhancements include:
 - More ready-to-run benchmarks
 - Rich Python exception hierarchy
 - Distribution through PyPI
-
-
----
-
-## Requirements
-
-- Python 3.11 or later
-- Java 21 or later
-
-The BerryWave EDI Python SDK uses a local Java runtime to execute the BerryWave EDI processing engine.
-
 
 ---
 
