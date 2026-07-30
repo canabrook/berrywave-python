@@ -71,10 +71,6 @@ Each release includes:
 - `berrywave_edi-*.whl` — the Python SDK package
 - `berrywave_edi_examples-*.zip` — example programs and sample EDI documents
 
-
-
-### Install the SDK
-
 Download the latest wheel file:
 
 ```text
@@ -85,20 +81,14 @@ Create and activate a Python virtual environment:
 
 ```bash
 python -m venv .venv
-
 source .venv/bin/activate
 ```
 
-Install the SDK:
+Install and verify the SDK:
 
 ```bash
 pip install berrywave_edi-0.1.0-py3-none-any.whl
-```
-
-Verify the installation:
-
-```bash
-python -c "import berrywave; print(berrywave)"
+pip show berrywave-edi
 ```
 
 The SDK is now ready to use.
