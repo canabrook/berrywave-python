@@ -28,6 +28,10 @@ EXAMPLES_DIR = ROOT / "examples"
 EXAMPLES_OUTPUT = "berrywave_edi_examples"
 SAMPLE_DATA_DIR = ROOT / "sample_data"
 
+BENCHMARKS_DIR = ROOT / "benchmarks"
+BENCHMARK_DATA_DIR = ROOT / "benchmark_data"
+BENCHMARKS_OUTPUT = "berrywave_edi_benchmarks"
+
 
 def read_version() -> str:
     """Read the project version from pyproject.toml."""
@@ -129,6 +133,34 @@ def build_examples(version: str):
     print(f"Created {archive_path}")
 
 
+def build_benchmarks(version: str):
+    """Create the benchmarks archive."""
+
+    archive_name = f"{BENCHMARKS_OUTPUT}-{version}.zip"
+    archive_path = DIST / archive_name
+
+    print(f"Building benchmarks archive ({archive_name}) ...")
+
+    with zipfile.ZipFile(
+            archive_path,
+            "w",
+            compression=zipfile.ZIP_DEFLATED,
+    ) as archive:
+        add_directory_to_zip(
+            archive,
+            BENCHMARKS_DIR,
+            version,
+        )
+
+        add_directory_to_zip(
+            archive,
+            BENCHMARK_DATA_DIR,
+            version,
+        )
+
+    print(f"Created {archive_path}")
+
+
 def list_artifacts():
     """Display generated release artifacts."""
 
@@ -210,6 +242,8 @@ def main():
     build_wheel()
 
     build_examples(version)
+
+    build_benchmarks(version)
 
     verify_release()
 
