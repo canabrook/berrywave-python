@@ -32,7 +32,7 @@ UNT+17+METRO00001'
 UNZ+1+00163'
 """
 
-    json_document = service.edi_to_json(edi_document)
+    json_document = service.edi_to_json(edi_document, pretty=True)
     print(json_document)
 
 
