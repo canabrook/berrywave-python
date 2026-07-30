@@ -109,11 +109,7 @@ Download and extract the benchmark archive:
 
     berrywave_edi_benchmarks-0.1.0.zip
 
-After extracting the benchmark archive:
-
-    cd berrywave_edi_benchmarks-0.1.0
-
-Run the healthcare claims benchmark:
+From the same `berrywave_edi_examples-0.1.0` used above, run the healthcare claims benchmark:
 
     python -m benchmarks.benchmark_claims
 
