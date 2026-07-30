@@ -87,9 +87,10 @@ The SDK is now ready to use.
 
 ### Run the Examples
 
-Download and extract the examples archive:
+Download and extract the examples and benchmarks archives:
 
     berrywave_edi_examples-0.1.0.zip
+    berrywave_edi_benchmarks-0.1.0.zip
 
 The examples archive contains working examples and representative EDI documents covering the capabilities described above.
 
@@ -105,11 +106,7 @@ The examples demonstrate the SDK using representative EDI documents and require 
 
 ### Run the Claims Benchmark
 
-Download and extract the benchmark archive:
-
-    berrywave_edi_benchmarks-0.1.0.zip
-
-From the same `berrywave_edi_examples-0.1.0` used above, run the healthcare claims benchmark:
+Run the healthcare claims benchmark:
 
     python -m benchmarks.benchmark_claims
 
