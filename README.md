@@ -5,7 +5,6 @@
 
 ![Python](https://img.shields.io/badge/Python-3.14%2B-blue)
 ![Java](https://img.shields.io/badge/Java-21%2B-orange)
-![License](https://img.shields.io/badge/License-Apache%202.0-green)
 ![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)
 
 > **Convert X12 and EDIFACT EDI documents to JSON using a simple, Python-native API.**
