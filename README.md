@@ -129,7 +129,9 @@ The benchmark reports:
 - Conversion throughput
 - Claims processed per second
 
-The benchmark is intended to be run on your own machine so that performance results can be evaluated and compared under real-world conditions.
+The benchmark is intended to be run on your own machine
+so that performance results can be evaluated and compared under real-world conditions.
+The provided sample has 10,000 claims, and you are encouraged to benchmark with your own arbitrarily large EDI files.
 
 ---
 
