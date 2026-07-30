@@ -27,7 +27,12 @@ def format_bytes(value: int) -> str:
 
 
 def main():
-    input_file = PROJECT_ROOT / "sample_data" / "837s-100x100.edi"
+    input_file = PROJECT_ROOT / "benchmark_data" / "837s-100x100.edi"
+
+    if not input_file.exists():
+        raise FileNotFoundError(
+            f"Benchmark input file not found: {input_file}"
+        )
 
     output_file = PROJECT_ROOT / "output" / "837s-100x100.json"
 
