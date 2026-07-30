@@ -27,8 +27,8 @@ The initial public release focuses on **core EDI-to-JSON conversion**:
 - Convert X12 EDI to JSON
 - Convert EDIFACT to JSON
 - Optional pretty-printed JSON output
-- No license required
-- No network connectivity required
+- No BerryWave license required
+- **Fully local processing. No network connection or external service required. EDI data never needs to leave the machine**
 
 Additional EDI services will be added in future releases.
 
@@ -50,23 +50,17 @@ print(json_document)
 
 ## Example Programs
 
-The SDK includes working examples demonstrating common use cases.
+The SDK includes a growing collection of working examples demonstrating common EDI-to-JSON use cases.
 
-| Example                     | Description                                 |
-|-----------------------------|---------------------------------------------|
-| `850_to_json.py`            | Convert an X12 850 Purchase Order to JSON   |
-| `850_to_json_pretty.py`     | Produce indented, human-readable JSON       |
-| `837_to_json.py`            | Convert an X12 837 Healthcare Claim to JSON |
-| `edifact_orders_to_json.py` | Convert an EDIFACT ORDERS message to JSON   |
-| `edi_parse_error.py`        | Demonstrate handling EDI parsing exceptions |
+Examples cover:
 
-To run an example:
+- X12 transaction sets, including healthcare 837 claims and supply-chain 850 purchase orders
+- EDIFACT messages
+- EDI and JSON using strings or files
+- Pretty-printed JSON output
+- EDI parsing and error handling
 
-```bash
-python -m examples.850_to_json
-```
-
-Additional examples will be added as the SDK evolves.
+The examples are distributed separately with each GitHub release.
 
 ---
 
