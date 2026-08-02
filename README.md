@@ -17,6 +17,7 @@ The Python SDK provides an alternative integration approach for applications tha
 
 The Python SDK source code is fully available in this repository.
 The underlying BerryWave EDI processing engine is developed and maintained by BerryWave Software and is distributed as prebuilt runtime libraries.
+
 ---
 
 ## Current Release
