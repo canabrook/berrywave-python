@@ -1,22 +1,22 @@
 <h1>
   <img src="docs/images/berrywave-logo.png" alt="BerryWave Logo" width="36" height="36" valign="middle">
-  BerryWave EDI Python SDK
+  BerryWave Python EDI SDK
 </h1>
 
 ![Python](https://img.shields.io/badge/Python-3.14%2B-blue)
 ![Java](https://img.shields.io/badge/Java-21%2B-orange)
 ![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)
 
-> **Convert X12 and EDIFACT EDI documents to JSON using a simple, Python-native API.**
+The **BerryWave Python EDI SDK** is a high-performance SDK for converting X12 and EDIFACT EDI documents
+to normalized JSON using a simple, Python-native API. It combines a clean Python interface
+with the mature BerryWave EDI processing engine,
+enabling Python applications, automation workflows, data pipelines, and AI-enabled applications and workflows to process EDI entirely on the local machine.
 
-The BerryWave EDI Python SDK provides a simple, Python-native interface for working with EDI documents while leveraging the proven BerryWave Software EDI processing engine.
-
-The same EDI engine powers the BerryWave API for EDI, a REST API for EDI processing. The Python SDK provides an alternative integration approach for Python applications, automation workflows, data pipelines, and AI-enabled applications that prefer a native Python interface.
+The same EDI processing engine powers the BerryWave API for EDI, a REST API for EDI processing.
+The Python SDK provides an alternative integration approach for applications that prefer a native Python interface.
 
 The Python SDK source code is fully available in this repository.
-
 The underlying BerryWave EDI processing engine is developed and maintained by BerryWave Software and is distributed as prebuilt runtime libraries.
-
 ---
 
 ## Current Release
@@ -61,7 +61,7 @@ The examples are distributed separately with each GitHub release.
 
 ## Installation
 
-The recommended way to install the BerryWave EDI Python SDK is from the release assets available on the project's GitHub Releases page.
+The recommended way to install the BerryWave Python EDI SDK is from the release assets available on the project's GitHub Releases page.
 
 Each release includes:
 
@@ -102,7 +102,7 @@ Run an example:
 
     python -m examples.850_to_json_pretty
 
-The examples demonstrate the SDK using representative EDI documents and require only the installed BerryWave EDI Python SDK.
+The examples demonstrate the SDK using representative EDI documents and require only the installed BerryWave Python EDI SDK.
 
 ### Run the Claims Benchmark
 
@@ -135,25 +135,26 @@ The SDK is intentionally layered.
     Python Application
             │
             ▼
-    BerryWave Python SDK
+    BerryWave Python EDI SDK
             │
             ▼
-    BerryWave EDI Engine
+    BerryWave EDI Processing Engine
             │
             ▼
     X12 / EDIFACT Processing
 
-The Python layer presents a clean, Pythonic interface while the underlying EDI processing remains implemented in the BerryWave EDI engine. Most applications never need to know that the implementation is written in Java.
+The Python layer presents a clean, Pythonic interface while the underlying EDI processing remains implemented in the BerryWave EDI engine.
+Most applications never need to know that the implementation is written in Java.
 
 ---
 
 ## Security
 
-The BerryWave EDI engine is designed for environments where EDI data must remain under customer control.
+The BerryWave EDI processing engine is designed for environments where EDI data must remain under customer control.
 
 Features include:
 
-- No network connectivity required
+- No network connectivity required for EDI processing
 - No inbound or outbound network connections
 - Suitable for on-premise deployment
 - Suitable for air-gapped environments
@@ -168,13 +169,13 @@ All EDI processing occurs entirely on the local machine.
 - Python 3.14 or later
 - Java 21 or later
 
-The BerryWave EDI Python SDK uses a local Java runtime to execute the BerryWave EDI processing engine.
+The BerryWave EDI Python SDK uses a local Java runtime to execute the EDI processing engine.
 
 ---
 
 ## Roadmap
 
-The underlying BerryWave EDI engine natively supports additional capabilities that will be exposed in future Python SDK releases:
+The underlying EDI engine natively supports additional capabilities that will be exposed in future Python SDK releases:
 
 * **Engine Capabilities (Coming to Python SDK):**
   * JSON → EDI conversion
@@ -200,9 +201,9 @@ For more information about the REST API approach, see:
 
 https://github.com/RBMayberry/BerryWave-EDI-API
 
-This repository contains the complete BerryWave EDI Python SDK source code.
+This repository contains the complete BerryWave Python EDI SDK source code.
 
-The BerryWave EDI processing engine is developed and maintained by BerryWave Software and is distributed as prebuilt runtime libraries included with the SDK.
+The BerryWave EDI processing engine and associated runtime libraries are included with the SDK distribution and licensed separately.
 
 ---
 
