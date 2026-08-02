@@ -3,7 +3,7 @@
   BerryWave Python EDI SDK
 </h1>
 
-![Python](https://img.shields.io/badge/Python-3.14%2B-blue)
+![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
 ![Java](https://img.shields.io/badge/Java-21%2B-orange)
 ![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)
 
@@ -167,7 +167,7 @@ All EDI processing occurs entirely on the local machine.
 
 ## Requirements
 
-- Python 3.14 or later
+- Python 3.11 or later
 - Java 21 or later
 
 The BerryWave EDI Python SDK uses a local Java runtime to execute the EDI processing engine.
