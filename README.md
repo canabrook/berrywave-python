@@ -105,27 +105,43 @@ Run an example:
 
 The examples demonstrate the SDK using representative EDI documents and require only the installed BerryWave Python EDI SDK.
 
-### Run the Claims Benchmark
+### Run the Claims Benchmarks
 
-Run the healthcare claims benchmark:
+The benchmark package includes a collection of synthetic X12 837 Professional Healthcare Claim (837P) documents of increasing size.
+
+Run the benchmark suite:
 
     python -m benchmarks.benchmark_claims
 
-The benchmark reports:
+The benchmark automatically discovers all benchmark files in the `benchmark_data` directory whose names follow the pattern:
 
-- Python version
-- Java version
-- BerryWave SDK version
-- Input and output file sizes
-- Number of claims processed
-- JVM startup time
-- EDI → JSON conversion time
-- Conversion throughput
-- Claims processed per second
+```text
+837-<transactions>-<claims>.edi
+```
 
-The benchmark is intended to be run on your own machine
-so that performance results can be evaluated and compared under real-world conditions.
-The provided sample has 10,000 claims, and you are encouraged to benchmark with your own arbitrarily large EDI files.
+For each file, the benchmark:
+
+- Converts the EDI document to JSON using the SDK's file-to-file API
+- Measures conversion time
+- Calculates claims processed per second
+- Reports input and output file sizes
+- Reports the total number of claims processed
+
+After all benchmark files have been processed, the benchmark generates:
+
+- A summary table showing:
+  - Input file
+  - Input size
+  - Output size
+  - Total claims
+  - Conversion time
+  - Claims processed per second
+- A CSV file containing the benchmark results
+- A scatterplot showing throughput (claims per second) as a function of the total number of claims
+
+The benchmark data consists entirely of synthetically generated healthcare claims created specifically for performance testing. The files contain realistic X12 837 structures while using fictitious names, identifiers, addresses, and payer information suitable for public distribution.
+
+The benchmark is intended to be run on your own hardware so that performance can be evaluated and compared under real-world conditions.
 
 ---
 
