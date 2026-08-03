@@ -116,7 +116,7 @@ The recommended working directory layout is:
     |
     └── berrywave_edi_benchmarks-0.1.0/
 
-The examples and benchmark archives should be extracted into the same working directory where the virtual environment was created. They should **not** be extracted into the Python installation or the virtual environment directory.
+The examples and benchmark archives should be extracted into the same working directory where the virtual environment was created.
 
 ### Run the Examples
 
@@ -137,19 +137,20 @@ The examples demonstrate the SDK using representative EDI documents and require 
 
 The benchmark package includes a collection of synthetic X12 837 Professional Healthcare Claim (837P) documents of increasing size, ranging from **10,000 claims to 1,000,000 claims**.
 
-To keep the Git repository compact, the benchmark datasets are distributed in the **`berrywave_edi_benchmarks-*.zip`** release asset rather than being stored directly in the repository.
-
-Extract the benchmark archive:
-
-    berrywave_edi_benchmarks-0.1.0/
-
-The extracted benchmark directory contains both the benchmark programs and benchmark data:
+In the same working directory used above, extract the benchmark archive:
 
     berrywave_edi_benchmarks-0.1.0/
         benchmarks/
         benchmark_data/
 
-Run the benchmark from the extracted benchmark directory:
+The benchmark programs require matplotlib to generate charts. Install it into your virtual environment:
+
+    pip install matplotlib
+
+Run the benchmark.
+Depending on your hardware, processing the full benchmark suite
+typically requires approximately **3–5 minutes** (it includes an 837 file with 1,000,000 claims!).
+
 
     cd berrywave_edi_benchmarks-0.1.0
     python -m benchmarks.benchmark_claims
@@ -190,8 +191,6 @@ After all benchmark files have been processed, the benchmark generates:
   - Claims processed per second
 - A CSV file containing the benchmark results
 - A scatterplot showing throughput (claims per second) as a function of the total number of claims
-
-Depending on your hardware, processing the full benchmark suite—including the 1,000,000-claim dataset—typically requires approximately **3–5 minutes**.
 
 The benchmark runs on your own hardware so that performance can be evaluated and compared under real-world conditions.
 

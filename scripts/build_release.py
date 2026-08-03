@@ -27,6 +27,7 @@ PYPROJECT = ROOT / "pyproject.toml"
 EXAMPLES_DIR = ROOT / "examples"
 EXAMPLES_OUTPUT = "berrywave_edi_examples"
 SAMPLE_DATA_DIR = ROOT / "sample_data"
+OUTPUT_DATA_DIR = ROOT / "output"
 
 BENCHMARKS_DIR = ROOT / "benchmarks"
 BENCHMARK_DATA_DIR = ROOT / "benchmark_data"
@@ -78,8 +79,12 @@ def find_wheel() -> Path:
     return wheels[0]
 
 
-def add_directory_to_zip(archive, directory, version):
-    """Add a directory tree to the examples archive."""
+def add_directory_to_zip(
+        archive,
+        directory,
+        output_name,
+        version):
+    """Add a directory tree to an archive."""
 
     if not directory.exists():
         return
@@ -100,7 +105,7 @@ def add_directory_to_zip(archive, directory, version):
         archive.write(
             file,
             arcname=Path(
-                f"{EXAMPLES_OUTPUT}-{version}"
+                f"{output_name}-{version}"
             ) / relative_path,
         )
 
@@ -121,12 +126,21 @@ def build_examples(version: str):
         add_directory_to_zip(
             archive,
             EXAMPLES_DIR,
+            EXAMPLES_OUTPUT,
             version,
         )
 
         add_directory_to_zip(
             archive,
             SAMPLE_DATA_DIR,
+            EXAMPLES_OUTPUT,
+            version,
+        )
+
+        add_directory_to_zip(
+            archive,
+            OUTPUT_DATA_DIR,
+            EXAMPLES_OUTPUT,
             version,
         )
 
@@ -149,12 +163,14 @@ def build_benchmarks(version: str):
         add_directory_to_zip(
             archive,
             BENCHMARKS_DIR,
+            BENCHMARKS_OUTPUT,
             version,
         )
 
         add_directory_to_zip(
             archive,
             BENCHMARK_DATA_DIR,
+            BENCHMARKS_OUTPUT,
             version,
         )
 
