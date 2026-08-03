@@ -107,7 +107,11 @@ The examples demonstrate the SDK using representative EDI documents and require 
 
 ### Run the Claims Benchmarks
 
-The benchmark package includes a collection of synthetic X12 837 Professional Healthcare Claim (837P) documents of increasing size.
+The benchmark package includes a collection of synthetic X12 837 Professional Healthcare Claim (837P) documents of increasing size, ranging from **10,000 claims to 1,000,000 claims**.
+
+To keep the Git repository compact, the benchmark datasets are distributed in the **`berrywave_edi_benchmarks-*.zip`** release asset rather than being stored directly in the repository.
+
+After installing the SDK wheel, extract the benchmark archive into the **same directory where the wheel was installed**. This places the `benchmark_data` directory where the benchmark programs expect to find it.
 
 Run the benchmark suite:
 
@@ -119,12 +123,23 @@ The benchmark automatically discovers all benchmark files in the `benchmark_data
 837-<transactions>-<claims>.edi
 ```
 
-For each file, the benchmark:
+where:
+
+- `<transactions>` is the number of `ST` transaction sets in the file.
+- `<claims>` is the number of claims contained in each transaction.
+
+The total number of claims processed is therefore:
+
+```text
+transactions × claims
+```
+
+For each benchmark file, the program:
 
 - Converts the EDI document to JSON using the SDK's file-to-file API
 - Measures conversion time
 - Calculates claims processed per second
-- Reports input and output file sizes
+- Reports the input and output file sizes
 - Reports the total number of claims processed
 
 After all benchmark files have been processed, the benchmark generates:
@@ -139,9 +154,11 @@ After all benchmark files have been processed, the benchmark generates:
 - A CSV file containing the benchmark results
 - A scatterplot showing throughput (claims per second) as a function of the total number of claims
 
+Depending on your hardware, processing the full benchmark suite—including the 1,000,000-claim dataset—typically requires approximately **3–5 minutes**.
+The benchmark runs on your own hardware so that performance can be evaluated and compared under real-world conditions.
+
 The benchmark data consists entirely of synthetically generated healthcare claims created specifically for performance testing. The files contain realistic X12 837 structures while using fictitious names, identifiers, addresses, and payer information suitable for public distribution.
 
-The benchmark is intended to be run on your own hardware so that performance can be evaluated and compared under real-world conditions.
 
 ---
 
