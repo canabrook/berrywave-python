@@ -18,9 +18,6 @@ The Python SDK provides an alternative integration approach for applications tha
 The Python SDK source code is fully available in this repository.
 The underlying BerryWave EDI processing engine is developed and maintained by BerryWave Software and is distributed as prebuilt runtime libraries.
 
-The Python SDK source code is fully available in this repository.
-The underlying BerryWave EDI processing engine is developed and maintained by BerryWave Software and is distributed as prebuilt runtime libraries.
-
 ## Contents
 
 - [Features](#features)
@@ -109,11 +106,25 @@ Install and verify the SDK:
 
 The SDK is now ready to use.
 
+The recommended working directory layout is:
+
+    my-berrywave-test/
+    |
+    ├── .venv/
+    |
+    ├── berrywave_edi_examples-0.1.0/
+    |
+    └── berrywave_edi_benchmarks-0.1.0/
+
+The examples and benchmark archives should be extracted into the same working directory where the virtual environment was created. They should **not** be extracted into the Python installation or the virtual environment directory.
+
 ### Run the Examples
 
-Extract the examples archive into its own directory:
+Extract the examples archive:
 
     berrywave_edi_examples-0.1.0/
+
+The extracted examples directory contains the example programs and sample EDI documents.
 
 Run examples from that directory:
 
@@ -128,9 +139,11 @@ The benchmark package includes a collection of synthetic X12 837 Professional He
 
 To keep the Git repository compact, the benchmark datasets are distributed in the **`berrywave_edi_benchmarks-*.zip`** release asset rather than being stored directly in the repository.
 
-After installing the SDK wheel, extract the benchmark archive into its own directory.
+Extract the benchmark archive:
 
-The extracted benchmark directory contains both the benchmark programs and the benchmark data:
+    berrywave_edi_benchmarks-0.1.0/
+
+The extracted benchmark directory contains both the benchmark programs and benchmark data:
 
     berrywave_edi_benchmarks-0.1.0/
         benchmarks/
@@ -179,10 +192,10 @@ After all benchmark files have been processed, the benchmark generates:
 - A scatterplot showing throughput (claims per second) as a function of the total number of claims
 
 Depending on your hardware, processing the full benchmark suite—including the 1,000,000-claim dataset—typically requires approximately **3–5 minutes**.
+
 The benchmark runs on your own hardware so that performance can be evaluated and compared under real-world conditions.
 
 The benchmark data consists entirely of synthetically generated healthcare claims created specifically for performance testing. The files contain realistic X12 837 structures while using fictitious names, identifiers, addresses, and payer information suitable for public distribution.
-
 
 ---
 
