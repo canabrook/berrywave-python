@@ -26,7 +26,7 @@ The underlying BerryWave EDI processing engine is developed and maintained by Be
 - [Features](#features)
 - [Quick Example](#quick-example)
 - [Example Programs](#example-programs)
-- [Installation](#installation)
+- [Installation and Getting Started](#installation-and-getting-started)
   - [Run the Examples](#run-the-examples)
   - [Run the Claims Benchmarks](#run-the-claims-benchmarks)
 - [Architecture](#architecture)
@@ -78,7 +78,7 @@ The examples are distributed separately with each GitHub release.
 
 ---
 
-## Installation
+## Installation and Getting Started
 
 The recommended way to install the BerryWave Python EDI SDK is from the release assets available on the project's GitHub Releases page.
 
@@ -97,6 +97,11 @@ Create and activate a Python virtual environment:
     python -m venv .venv
     source .venv/bin/activate
 
+Confirm that the virtual environment is active:
+
+    python --version
+    pip --version
+
 Install and verify the SDK:
 
     pip install berrywave_edi-0.1.0-py3-none-any.whl
@@ -106,19 +111,13 @@ The SDK is now ready to use.
 
 ### Run the Examples
 
-Download and extract the examples and benchmarks archives:
+Extract the examples archive into its own directory:
 
-    berrywave_edi_examples-0.1.0.zip
-    berrywave_edi_benchmarks-0.1.0.zip
+    berrywave_edi_examples-0.1.0/
 
-The examples archive contains working examples and representative EDI documents covering the capabilities described above.
-
-After extracting:
+Run examples from that directory:
 
     cd berrywave_edi_examples-0.1.0
-
-Run an example:
-
     python -m examples.850_to_json_pretty
 
 The examples demonstrate the SDK using representative EDI documents and require only the installed BerryWave Python EDI SDK.
@@ -129,10 +128,17 @@ The benchmark package includes a collection of synthetic X12 837 Professional He
 
 To keep the Git repository compact, the benchmark datasets are distributed in the **`berrywave_edi_benchmarks-*.zip`** release asset rather than being stored directly in the repository.
 
-After installing the SDK wheel, extract the benchmark archive into the **same directory where the wheel was installed**. This places the `benchmark_data` directory where the benchmark programs expect to find it.
+After installing the SDK wheel, extract the benchmark archive into its own directory.
 
-Run the benchmark suite:
+The extracted benchmark directory contains both the benchmark programs and the benchmark data:
 
+    berrywave_edi_benchmarks-0.1.0/
+        benchmarks/
+        benchmark_data/
+
+Run the benchmark from the extracted benchmark directory:
+
+    cd berrywave_edi_benchmarks-0.1.0
     python -m benchmarks.benchmark_claims
 
 The benchmark automatically discovers all benchmark files in the `benchmark_data` directory whose names follow the pattern:
