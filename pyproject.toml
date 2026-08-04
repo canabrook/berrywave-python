@@ -1,10 +1,45 @@
 [project]
 name = "berrywave-edi"
 version = "0.2.0"
-description = "Python interface to the BerryWave EDI engine"
-requires-python = ">=3.14"
+description = "Python SDK for converting X12 and EDIFACT EDI documents to normalized JSON."
+requires-python = ">=3.11"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "BerryWave Software" }
+]
+keywords = [
+    "edi",
+    "x12",
+    "edifact",
+    "json",
+    "healthcare",
+    "hipaa",
+    "integration",
+    "b2b"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
 dependencies = [
-    "jpype1"
+    "jpype1>=1.7.1"
+]
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "build",
+    "twine"
 ]
 
 [build-system]
@@ -19,7 +54,7 @@ namespaces = false
 [tool.setuptools.package-data]
 berrywave = ["runtime/java/*.jar"]
 
-[project.optional-dependencies]
-dev = [
-    "pytest"
-]
+[project.urls]
+"Homepage" = "https://canabrook.github.io/berrywave-python/"
+"Repository" = "https://github.com/canabrook/berrywave-python"
+"Issues" = "https://github.com/canabrook/berrywave-python/issues"
