@@ -1,6 +1,6 @@
 [project]
 name = "berrywave-edi"
-version = "0.1.0"
+version = "0.2.0"
 description = "Python interface to the BerryWave EDI engine"
 requires-python = ">=3.14"
 dependencies = [

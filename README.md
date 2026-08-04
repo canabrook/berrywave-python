@@ -87,7 +87,7 @@ Each release includes:
 
 Download the latest wheel file:
 
-    berrywave_edi-0.1.0-py3-none-any.whl
+    berrywave_edi-0.2.0-py3-none-any.whl
 
 Create and activate a Python virtual environment:
 
@@ -101,7 +101,7 @@ Confirm that the virtual environment is active:
 
 Install and verify the SDK:
 
-    pip install berrywave_edi-0.1.0-py3-none-any.whl
+    pip install berrywave_edi-0.2.0-py3-none-any.whl
     pip show berrywave-edi
 
 The SDK is now ready to use.
@@ -112,9 +112,9 @@ The recommended working directory layout is:
     |
     ├── .venv/
     |
-    ├── berrywave_edi_examples-0.1.0/
+    ├── berrywave_edi_examples-0.2.0/
     |
-    └── berrywave_edi_benchmarks-0.1.0/
+    └── berrywave_edi_benchmarks-0.2.0/
 
 The examples and benchmark archives should be extracted into the same working directory where the virtual environment was created.
 
@@ -122,13 +122,13 @@ The examples and benchmark archives should be extracted into the same working di
 
 Extract the examples archive:
 
-    berrywave_edi_examples-0.1.0/
+    berrywave_edi_examples-0.2.0/
 
 The extracted examples directory contains the example programs and sample EDI documents.
 
 Run examples from that directory:
 
-    cd berrywave_edi_examples-0.1.0
+    cd berrywave_edi_examples-0.2.0
     python -m examples.850_to_json_pretty
 
 The examples demonstrate the SDK using representative EDI documents and require only the installed BerryWave Python EDI SDK.
@@ -139,7 +139,7 @@ The benchmark package includes a collection of synthetic X12 837 Professional He
 
 In the same working directory used above, extract the benchmark archive:
 
-    berrywave_edi_benchmarks-0.1.0/
+    berrywave_edi_benchmarks-0.2.0/
         benchmarks/
         benchmark_data/
 
@@ -152,7 +152,7 @@ Depending on your hardware, processing the full benchmark suite
 typically requires approximately **3–5 minutes** (it includes an 837 file with 1,000,000 claims!).
 
 
-    cd berrywave_edi_benchmarks-0.1.0
+    cd berrywave_edi_benchmarks-0.2.0
     python -m benchmarks.benchmark_claims
 
 The benchmark automatically discovers all benchmark files in the `benchmark_data` directory whose names follow the pattern:
