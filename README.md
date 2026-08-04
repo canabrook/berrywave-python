@@ -1,7 +1,4 @@
-<h1>
-  <img src="https://github.com/canabrook/berrywave-python/blob/main/docs/images/berrywave-logo.png" alt="BerryWave Logo" width="36" height="36" valign="middle">
-  BerryWave Python EDI SDK
-</h1>
+# BerryWave Python EDI SDK
 
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
 ![Java](https://img.shields.io/badge/Java-21%2B-orange)
