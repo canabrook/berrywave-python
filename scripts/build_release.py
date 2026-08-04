@@ -60,7 +60,7 @@ def build_wheel():
     print("Building wheel ...")
 
     subprocess.run(
-        ["python", "-m", "build", "--wheel"],
+        ["python", "-m", "build"],
         cwd=ROOT,
         check=True,
     )
