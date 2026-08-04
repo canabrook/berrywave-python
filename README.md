@@ -1,5 +1,5 @@
 <h1>
-  <img src="docs/images/berrywave-logo.png" alt="BerryWave Logo" width="36" height="36" valign="middle">
+  <img src="https://github.com/canabrook/berrywave-python/blob/main/docs/images/berrywave-logo.png" alt="BerryWave Logo" width="36" height="36" valign="middle">
   BerryWave Python EDI SDK
 </h1>
 
