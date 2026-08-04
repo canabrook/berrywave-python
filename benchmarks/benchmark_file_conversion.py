@@ -42,7 +42,7 @@ def main():
 
     start = perf_counter()
 
-    service.edi_file_to_json(
+    service.edi_to_json_file(
         input_file,
         output_file,
     )

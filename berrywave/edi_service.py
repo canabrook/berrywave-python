@@ -52,7 +52,7 @@ class EdiService:
         except Exception as exc:
             raise EdiParseError(str(exc)) from exc
 
-    def edi_file_to_json(
+    def edi_to_json_file(
             self,
             input_file: str | Path,
             output_file: str | Path,
