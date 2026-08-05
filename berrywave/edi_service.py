@@ -84,5 +84,5 @@ class EdiService:
             raise EdiParseError(f"Unable to convert EDI file '{input_path}': {exc}") from exc
 
 
-def license_info(self) -> str:
-    return self._service.getLicenseInfo()
+    def license_info(self) -> str:
+        return self._service.getLicenseInfo()
