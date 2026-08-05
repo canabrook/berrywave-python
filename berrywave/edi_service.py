@@ -83,6 +83,30 @@ class EdiService:
         except Exception as exc:
             raise EdiParseError(f"Unable to convert EDI file '{input_path}': {exc}") from exc
 
+    def acknowledge(
+            self,
+            edi: str
+    ) -> str:
+        """
+        Acknowledge an EDI document provided as a string.
+
+        Args:
+            edi: EDI document content.
+
+        Returns:
+            EDI acknowledgement as a string.
+
+        Raises:
+            EdiParseError: If the EDI document cannot be converted.
+        """
+        try:
+            return str(self._service.ediToJson(
+                edi,
+                None,
+                False,
+            ))
+        except Exception as exc:
+            raise EdiParseError(str(exc)) from exc
 
     def license_info(self) -> str:
         return self._service.getLicenseInfo()
