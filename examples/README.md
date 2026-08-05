@@ -1,14 +1,12 @@
-# BerryWave EDI Python SDK Examples
+# BerryWave Python EDI SDK Examples
 
-These examples demonstrate EDI services using the BerryWave EDI Python SDK.
+Examples are organized by SDK operation.
 
-Before running:
-
-```bash
-pip install berrywave_edi
-```
-
-Examples:
-* 850_to_json.py
-* 837_to_json.py
-* edifact_orders_to_json.py
+| Directory | Purpose |
+|-----------|---------|
+| `edi_to_json/` | Convert X12 and EDIFACT documents to normalized JSON |
+| `json_to_edi/` | Generate EDI documents from normalized JSON |
+| `validate/` | Validate EDI documents for standards compliance |
+| `acknowledge/` | Generate technical acknowledgments (997, 999, CONTRL) |
+| `respond/` | Generate business response documents (855, 277, etc.) |
+| `sdk/` | SDK information and utility examples |
