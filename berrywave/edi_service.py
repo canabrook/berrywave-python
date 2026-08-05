@@ -100,10 +100,10 @@ class EdiService:
             EdiParseError: If the EDI document cannot be converted.
         """
         try:
-            return str(self._service.ediToJson(
+            return str(self._service.acknowledge(
                 edi,
-                None,
-                False,
+                "",
+                "997",
             ))
         except Exception as exc:
             raise EdiParseError(str(exc)) from exc

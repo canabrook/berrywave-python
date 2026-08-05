@@ -1,9 +1,15 @@
 """
-Convert an X12 850 Purchase Order to JSON.
+Generate a technical acknowledgment for an EDI document.
 
-This example demonstrates the simplest use of the BerryWave Python SDK by
-converting an EDI document held in a Python string.
+This example demonstrates the simplest use of the BerryWave Python EDI SDK by
+passing an EDI document held in a Python string to EdiService.acknowledge().
+
+The SDK automatically generates the appropriate technical acknowledgment based
+on the input document. For X12 input, the response will typically be a 997 or
+999 Functional Acknowledgment. For EDIFACT input, the response will be a CONTRL
+message.
 """
+
 from berrywave import EdiService
 
 
@@ -24,7 +30,10 @@ GE^1^653~
 IEA^1^500009740~
 """
 
+    # Generate the appropriate technical acknowledgment.
     acknowledgment = service.acknowledge(edi_document)
+
+    print("Generated acknowledgment:\n")
     print(acknowledgment)
 
 

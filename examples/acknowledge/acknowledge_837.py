@@ -1,9 +1,16 @@
 """
-Convert an X12 837 Healthcare Claim to JSON.
+Generate a technical acknowledgment for an X12 837 Healthcare Claim.
 
-This example demonstrates processing a professional healthcare claim
-(005010X222A1) into structured JSON.
+This example demonstrates the simplest use of the BerryWave Python EDI SDK by
+passing an X12 837 Professional Healthcare Claim (005010X222A1) held in a
+Python string to EdiService.acknowledge().
+
+The SDK automatically generates the appropriate technical acknowledgment based
+on the input document. For X12 input, the response will typically be a 997 or
+999 Functional Acknowledgment. For EDIFACT input, the response will be a CONTRL
+message.
 """
+
 from berrywave import EdiService
 
 
@@ -47,8 +54,11 @@ GE*1*20213~
 IEA*1*000010216~
 """
 
-    json_document = service.acknowledge(edi_document)
-    print(json_document)
+    # Generate the appropriate technical acknowledgment.
+    acknowledgment = service.acknowledge(edi_document)
+
+    print("Generated acknowledgment:\n")
+    print(acknowledgment)
 
 
 if __name__ == "__main__":
