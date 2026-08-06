@@ -85,7 +85,9 @@ class EdiService:
 
     def acknowledge(
             self,
-            edi: str
+            edi: str,
+            *,
+            response_type: str | None = None
     ) -> str:
         """
         Acknowledge an EDI document provided as a string.
@@ -107,6 +109,17 @@ class EdiService:
             ))
         except Exception as exc:
             raise EdiParseError(str(exc)) from exc
+
+    def acknowledge_file(
+            self,
+            input_file: Path | str,
+            output_file: Path | str,
+            *,
+            response_type: str | None = None
+    ) -> None:
+        raise NotImplementedError(
+            "acknowledge_file() is not yet implemented"
+        )
 
     def license_info(self) -> str:
         return self._service.getLicenseInfo()
