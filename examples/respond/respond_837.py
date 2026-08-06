@@ -1,14 +1,5 @@
 """
-Generate a technical acknowledgment for an X12 837 Healthcare Claim.
-
-This example demonstrates the simplest use of the BerryWave Python EDI SDK by
-passing an X12 837 Professional Healthcare Claim (005010X222A1) held in a
-Python string to EdiService.acknowledge().
-
-The SDK automatically generates the appropriate technical acknowledgment based
-on the input document. For X12 input, the response will typically be a 997 or
-999 Functional Acknowledgment. For EDIFACT input, the response will be a CONTRL
-message.
+Generate a 277 claim acknowledgement in response to an 837 healthcare claim
 """
 
 from berrywave import EdiService
@@ -55,10 +46,10 @@ IEA*1*000010216~
 """
 
     # Generate the healthcare claim acknowledgment
-    acknowledgment = service.respond(edi_document, response_type="277")
+    response = service.respond(edi_document, response_type="277")
 
-    print("Generated response:\n")
-    print(acknowledgment)
+    print("Responding to 837 with:")
+    print(response)
 
 
 if __name__ == "__main__":

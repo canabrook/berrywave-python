@@ -23,10 +23,10 @@ IEA^1^500009740~
 """
 
     # Generate an 855 purchase order acknowledgment in response to an 850 purchase order.
-    acknowledgment = service.respond(edi_document, response_type="855")
+    response = service.respond(edi_document, response_type="855")
 
-    print("Generated response:")
-    print(acknowledgment)
+    print("Responding to 850 with:")
+    print(response)
 
 
 if __name__ == "__main__":

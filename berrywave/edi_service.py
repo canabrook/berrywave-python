@@ -128,25 +128,95 @@ class EdiService:
             response_type: str | None = None
     ) -> str:
         """
-        Respond to an EDI document provided as a string.
+        Generate a business response for an EDI document provided as a string.
 
         Args:
             edi: EDI document content.
+            response_type:
+                Business response type to generate.
+
+                Supported values:
+                - 855: X12 Purchase Order Acknowledgment (850 response)
+                - 277: X12 Healthcare Claim Response (837 response)
 
         Returns:
-            EDI response as a string.
+            Business response EDI document as a string.
 
         Raises:
-            EdiParseError: If the EDI document cannot be converted.
+            ValueError:
+                If response_type is missing or unsupported.
+            EdiParseError:
+                If the EDI document cannot be processed.
         """
+
+        if response_type is None:
+            raise ValueError(
+                "response_type is required for respond(). "
+                "Supported values: 855, 277"
+            )
+
         try:
-            return str(self._service.x850To855(
-                edi,
-                "",
-                "",
-            ))
+            if response_type == "855":
+                return str(self._service.x850To855(
+                    edi,
+                    "",
+                    "",
+                ))
+
+            elif response_type == "277":
+                return str(self._service.x837To277(
+                    edi,
+                    "",
+                    "",
+                ))
+
+            else:
+                raise ValueError(
+                    f"Unsupported response type: {response_type}. "
+                    "Supported values: 855, 277"
+                )
+
+        except ValueError:
+            raise
+
         except Exception as exc:
             raise EdiParseError(str(exc)) from exc
+
+    def respond_file(
+            self,
+            input_file: Path | str,
+            output_file: Path | str,
+            *,
+            response_type: str | None = None
+    ) -> None:
+        """
+        Generate a business response from an EDI file.
+
+        This file-based API is provided as part of the SDK interface but is
+        not yet implemented.
+
+        Args:
+            input_file:
+                Path to the input EDI document.
+
+            output_file:
+                Path where the generated response will be written.
+
+            response_type:
+                Business response type to generate.
+
+                Supported values:
+                - 855: X12 Purchase Order Acknowledgment
+                - 277: X12 Healthcare Claim Response
+
+        Raises:
+            NotImplementedError:
+                Always, until file-based responses are implemented.
+        """
+
+        raise NotImplementedError(
+            "respond_file() is not yet implemented"
+        )
 
     def license_info(self) -> str:
         return self._service.getLicenseInfo()
