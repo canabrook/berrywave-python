@@ -33,7 +33,7 @@ IEA^1^500009740~
     # Generate the appropriate technical acknowledgment.
     acknowledgment = service.acknowledge(edi_document)
 
-    print("Generated acknowledgment:\n")
+    print("Acknowledging 850 with:")
     print(acknowledgment)
 
 
