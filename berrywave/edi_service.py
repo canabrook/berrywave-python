@@ -249,9 +249,7 @@ class EdiService:
                 currently installed BerryWave EDI engine.
         """
         raise FeatureUnavailableError(
-            "EDI validation is not available in the Community Edition. "
-            "This feature requires the Enterprise Edition of the "
-            "BerryWave EDI engine."
+            "Validation is not available in the currently installed BerryWave EDI engine."
         )
 
     def validate_file(
@@ -270,9 +268,7 @@ class EdiService:
                 currently installed BerryWave EDI engine.
         """
         raise FeatureUnavailableError(
-            "EDI validation is not available in the Community Edition. "
-            "This feature requires the Enterprise Edition of the "
-            "BerryWave EDI engine."
+            "Validation is not available in the currently installed BerryWave EDI engine."
         )
 
     def license_info(self) -> str:
