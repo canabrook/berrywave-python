@@ -45,7 +45,7 @@ GE*1*20213~
 IEA*1*000010216~
 """
 
-    # Validation is an Enterprise Edition capability.
+    # Validation requires Enterprise Edition of the BerryWave EDI processing engine.
     result = service.validate(edi_document)
 
     print(result)

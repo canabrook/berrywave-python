@@ -1,6 +1,10 @@
 from pathlib import Path
 
-from .exceptions import EdiParseError
+from .exceptions import (
+    EdiParseError,
+    FeatureUnavailableError,
+)
+
 from .jvm import start_jvm
 
 import jpype
@@ -216,6 +220,59 @@ class EdiService:
 
         raise NotImplementedError(
             "respond_file() is not yet implemented"
+        )
+
+    def validate(
+            self,
+            edi: str,
+            *,
+            response_type: str | None = None,
+    ) -> str:
+        """
+        Validate an EDI document provided as a string.
+
+        Validation performs EDI compliance checking and returns an
+        appropriate validation response (for example, an X12 997/999 or
+        EDIFACT CONTRL message).
+
+        Args:
+            edi: EDI document content.
+            response_type: Optional requested validation response type,
+                such as "997", "999", or "CONTRL". If omitted, the SDK
+                will choose the appropriate response type.
+
+        Returns:
+            Validation response as an EDI string.
+
+        Raises:
+            FeatureUnavailableError: Validation is not available in the
+                currently installed BerryWave EDI engine.
+        """
+        raise FeatureUnavailableError(
+            "EDI validation is not available in the Community Edition. "
+            "This feature requires the Enterprise Edition of the "
+            "BerryWave EDI engine."
+        )
+
+    def validate_file(
+            self,
+            input_file: Path | str,
+            output_file: Path | str,
+            *,
+            response_type: str | None = None,
+    ) -> None:
+        """
+        Validate an EDI file and write the validation response to an
+        output file.
+
+        Raises:
+            FeatureUnavailableError: Validation is not available in the
+                currently installed BerryWave EDI engine.
+        """
+        raise FeatureUnavailableError(
+            "EDI validation is not available in the Community Edition. "
+            "This feature requires the Enterprise Edition of the "
+            "BerryWave EDI engine."
         )
 
     def license_info(self) -> str:
