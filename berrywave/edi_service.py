@@ -105,7 +105,7 @@ class EdiService:
             return str(self._service.acknowledge(
                 edi,
                 "",
-                "997",
+                response_type,
             ))
         except Exception as exc:
             raise EdiParseError(str(exc)) from exc
