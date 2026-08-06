@@ -121,5 +121,32 @@ class EdiService:
             "acknowledge_file() is not yet implemented"
         )
 
+    def respond(
+            self,
+            edi: str,
+            *,
+            response_type: str | None = None
+    ) -> str:
+        """
+        Respond to an EDI document provided as a string.
+
+        Args:
+            edi: EDI document content.
+
+        Returns:
+            EDI response as a string.
+
+        Raises:
+            EdiParseError: If the EDI document cannot be converted.
+        """
+        try:
+            return str(self._service.acknowledge(
+                edi,
+                "",
+                response_type,
+            ))
+        except Exception as exc:
+            raise EdiParseError(str(exc)) from exc
+
     def license_info(self) -> str:
         return self._service.getLicenseInfo()
