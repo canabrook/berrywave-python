@@ -18,26 +18,41 @@ The Python SDK source code is fully available in this repository. The underlying
 
 # Features
 
-The current Community Edition supports:
+The BerryWave Python EDI SDK provides a Python-native interface to the BerryWave EDI processing engine.
+
+The SDK distribution includes the Community Edition of the BerryWave EDI processing engine and supports:
 
 - Convert X12 EDI documents to normalized JSON
 - Convert EDIFACT documents to normalized JSON
 - Generate X12 997 / 999 acknowledgments
 - Generate EDIFACT CONTRL acknowledgments
-- String-based and file-based APIs
+- String-based and file-based EDI processing APIs
 - Optional pretty-printed JSON output
 - Fully local processing
 - No network connection required
+
+The SDK is designed to support additional capabilities available through the Enterprise Edition of the BerryWave EDI processing engine, including:
+
+- JSON → EDI conversion
+- Advanced EDI validation
+- Business transaction responses (for example, 850 → 855 and 837 → 277)
+- Additional enterprise processing capabilities
+
+The Enterprise Edition is licensed separately from BerryWave Software and can be installed into an existing BerryWave Python EDI SDK environment by replacing the Community Edition engine runtime components with the licensed Enterprise Edition runtime.
+
+The SDK API remains consistent across both engine configurations.
+
+All EDI processing occurs locally. EDI data does not need to leave the machine.
 
 The SDK is organized around five simple operations:
 
 | Method | Purpose |
 |---------|---------|
 | `edi_to_json()` | Convert EDI to normalized JSON |
-| `json_to_edi()` | Convert normalized JSON back to EDI *(Enterprise Edition)* |
+| `json_to_edi()` | Convert normalized JSON back to EDI (requires Enterprise engine capabilities) |
 | `acknowledge()` | Generate a technical acknowledgment |
-| `validate()` | Validate an EDI document *(Enterprise Edition)* |
-| `respond()` | Generate a business response *(Enterprise Edition)* |
+| `validate()` | Validate an EDI document (requires Enterprise engine capabilities) |
+| `respond()` | Generate a business response (requires Enterprise engine capabilities) |
 
 ---
 
