@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from berrywave import BerryWaveError, EdiService
+from berrywave import EdiParseError, EdiService
 
 DATA_DIR = Path(__file__).parent / "data"
 
@@ -33,5 +33,5 @@ def test_edi_to_json_pretty():
 def test_edi_to_json_invalid_edi():
     service = EdiService()
 
-    with pytest.raises(BerryWaveError):
+    with pytest.raises(EdiParseError):
         service.edi_to_json("This is not valid EDI")
