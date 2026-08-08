@@ -114,8 +114,6 @@ my-berrywave-test/
 └── berrywave_edi_benchmarks-<version>/
 ```
 
-Keeping these directories together allows the examples and benchmark programs to locate their accompanying sample data.
-
 ---
 
 ## Install Optional Benchmark Dependencies
