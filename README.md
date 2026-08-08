@@ -86,10 +86,11 @@ print(ack)
 The project documentation is organized into focused guides:
 
 | Guide | Description |
-|------|-------------|
+| :--- | :--- |
 | [Installation Guide](docs/INSTALL.md) | Installation, virtual environments, verification, and getting started |
 | [Examples Guide](docs/EXAMPLES.md) | Complete guide to the included example programs |
 | [Benchmarks Guide](docs/BENCHMARKS.md) | Running the claims benchmarks and interpreting performance results |
+
 ---
 
 # Architecture
