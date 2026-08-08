@@ -14,14 +14,12 @@ After extracting the archive, the directory structure is:
 berrywave_edi_examples-<version>/
 │
 ├── examples/
-│   ├── edi_to_json/
-│   ├── acknowledge/
-│   ├── validate/
-│   ├── respond/
-│   ├── json_to_edi/
-│   └── sdk/
-│
-└── sample_data/
+    ├── edi_to_json/
+    ├── acknowledge/
+    ├── validate/
+    ├── respond/
+    ├── json_to_edi/
+    └── sdk/
 ```
 
 Each example is a complete, runnable Python program.
@@ -171,20 +169,6 @@ Example:
 ```bash
 python -m examples.sdk.show_license_info
 ```
-
----
-
-# Sample Data
-
-The examples use representative EDI documents located in the `sample_data` directory.
-
-These include:
-
-- X12 850 Purchase Orders
-- X12 837 Healthcare Claims
-- EDIFACT ORDERS messages
-
-The documents are intended for demonstration and learning purposes.
 
 ---
 
