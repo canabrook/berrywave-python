@@ -54,6 +54,8 @@ Run the benchmark:
 python -m benchmarks.benchmark_claims
 ```
 
+After running the benchmark, you may delete the large .json files that were created in `benchmark_output/`
+
 ---
 
 ## Benchmark Dataset
