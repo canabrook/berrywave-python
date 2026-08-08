@@ -17,7 +17,8 @@ Verify your installation:
 python --version
 java --version
 ```
-
+On some systems, especially macOS and Linux, the system Python command may
+be named `python3`.
 ---
 
 ## Download the Release
